@@ -1,7 +1,7 @@
 import os
 import sys
 
-sys.stdout.reconfigure(encoding="utf-8")
+sys.stdout.reconfigure(encoding="utf-8") # type: ignore
 
 # ============================================================
 # LangGraph 是什么？
@@ -64,6 +64,11 @@ from langgraph.graph.message import add_messages
 #     （这就是 add_messages 减法器/reducer 的作用）
 # ============================================================
 class State(TypedDict):
+    # Annotated[实际类型, 附加元数据] 是 Python 的类型提示语法：
+    #   - 第一个参数 list[BaseMessage]：字段的实际类型，即消息列表，
+    #     每项都是 BaseMessage（HumanMessage/AIMessage/SystemMessage 的父类）
+    #   - 第二个参数 add_messages：附加给 LangGraph 读取的元数据（reducer），
+    #     不改变类型本身，但告诉框架"更新此字段时追加而非覆盖"
     messages: Annotated[list[BaseMessage], add_messages]
 
 
@@ -214,7 +219,7 @@ def run_demo():
     print(f"完整对话历史共 {len(state['messages'])} 条消息：")
     for i, msg in enumerate(state["messages"]):
         role = "用户" if isinstance(msg, HumanMessage) else "助手"
-        preview = msg.content[:40].replace("\n", " ")
+        preview = str(msg.content)[:40].replace("\n", " ")
         print(f"  [{i+1}] {role}：{preview}...")
     print()
 
