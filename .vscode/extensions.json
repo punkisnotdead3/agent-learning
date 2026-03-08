@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "ms-python.python",           // Python 语言支持（必装）
+    "ms-python.pylance",          // Python 智能补全和类型检查
+    "ms-python.debugpy"           // Python 调试器
+  ]
+}

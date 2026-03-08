@@ -1,0 +1,36 @@
+# ============================================================
+# agent-learning 项目统一依赖
+#
+# 安装方式（推荐 uv，速度快 10x）：
+#   bash setup.sh        # Mac / Linux / Git Bash (Windows)
+#   setup.bat            # Windows CMD
+#
+# 手动安装：
+#   uv pip install -r requirements.txt   # 推荐
+#   pip install -r requirements.txt      # 备选
+# ============================================================
+
+# ── AI / LLM ────────────────────────────────────────────────
+openai>=1.0.0                   # OpenAI SDK（open ai 02/）
+langchain>=0.3.0                # LangChain 核心框架
+langchain-core>=0.3.0           # 消息、提示词、解析器等基础组件
+langchain-community>=0.3.0      # 文档加载器等社区组件
+langchain-text-splitters>=0.3.0 # 文本切割器
+langchain-deepseek>=0.1.0       # DeepSeek 模型集成（LangChain03/、LangGraph08/）
+langgraph>=0.2.0                # 图状态机框架（LangGraph08/）
+
+# ── 数据处理 ────────────────────────────────────────────────
+pandas>=2.0.0                   # 数据处理和 CSV 读写（Embedding01/）
+numpy>=1.26.0                   # 向量计算（Embedding01/）
+tqdm>=4.66.0                    # 进度条（Embedding01/）
+matplotlib>=3.7.0               # 数据可视化（Embedding01/）
+
+# ── Web UI ──────────────────────────────────────────────────
+gradio>=4.0.0                   # 交互式 Web 界面（Translator04/、memory05/）
+
+# ── 工具库 ──────────────────────────────────────────────────
+tiktoken>=0.7.0                 # Token 计数（open ai 02/demo04_tiktoken.py）
+kagglehub>=0.3.0                # Kaggle 数据集下载（Embedding01/）
+pydantic>=2.0.0                 # 数据验证（LangChain03/demo03）
+typing-extensions>=4.9.0        # 类型提示扩展（LangGraph08/）
+python-dotenv>=1.0.0            # 从 .env 文件加载环境变量
