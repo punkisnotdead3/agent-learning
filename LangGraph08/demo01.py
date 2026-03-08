@@ -261,13 +261,14 @@ def run_demo():
     print()
     try:
         print(app.get_graph().draw_ascii())
+        print("（以上为 LangGraph 自动生成）")
     except Exception:
-        # 部分环境可能缺少依赖，手动画出结构
         print("  [__start__]")
         print("       ↓")
         print("   [chatbot]")
         print("       ↓")
         print("  [__end__]")
+        print("（以上为手动绘制，draw_ascii 需要安装 grandalf：pip install grandalf）")
     print()
 
 
